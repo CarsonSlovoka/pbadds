@@ -6,6 +6,16 @@ import Carbon  // kVK_ANSI_* constants (可選)
 import CoreGraphics  // CGEvent
 import Foundation
 
+let VERSION = "1.0.0"
+
+// 先處理「-v / --version」參數
+let rawArgs = CommandLine.arguments
+
+if rawArgs.contains("-v") || rawArgs.contains("--version") {
+    print("pbadds version \(VERSION)")
+    exit(0)
+}
+
 let sourceFiles: [URL] = {
     // 取得所有參數，排除程式本身
     let args = CommandLine.arguments.dropFirst()
