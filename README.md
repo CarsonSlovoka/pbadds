@@ -30,3 +30,15 @@ pbadds README.md
 # 多檔案
 pbadds README.md ~/path/to/myfile
 ```
+
+---
+
+如果只想要複製單個檔案，可以考慮使用以下的方法即可
+
+```sh
+# ~/.zshrc
+pbadd() {
+    osascript -e "tell application \"Finder\" to set the clipboard to (POSIX file \"$(realpath $@)\")"
+}
+
+```
